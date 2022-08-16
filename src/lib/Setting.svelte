@@ -3,7 +3,7 @@
 	export let level = 0;
 	export let setting;
 	export let category;
-	export let desc;
+
 	let open = false;
 
 	function toggleOpen() {
@@ -15,7 +15,9 @@
 	<h3 class="text-xl border-b border-secondary" class:isOpen={open} on:click={toggleOpen}>
 		{category}
 	</h3>
-	<div data-tip="Desc :{desc ?? 'none'}">{desc}</div>
+	{#if setting.desc}
+		{setting.desc}
+	{/if}
 	{#if open}
 		<div class="grid grid-cols-2">
 			<div class="divider divider-horizontal" />
